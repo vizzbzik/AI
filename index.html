@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Искусственный интеллект в современном мире</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #0ea5e9;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark);
+            background-color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .logo i {
+            margin-right: 0.5rem;
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 10rem 0 5rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 2rem;
+            animation: fadeIn 1s ease-in-out;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            max-width: 90%;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            animation: float 5s ease-in-out infinite;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+        }
+        
+        /* Features Section */
+        .features {
+            padding: 6rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient);
+            color: white;
+            font-size: 1.8rem;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: var(--gray);
+        }
+        
+        /* Applications Section */
+        .applications {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%);
+        }
+        
+        .apps-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+        
+        .app-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .app-img {
+            height: 200px;
+            background: var(--gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .app-content {
+            padding: 1.5rem;
+        }
+        
+        .app-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .app-content p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Statistics Section */
+        .statistics {
+            padding: 6rem 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            padding: 2rem;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-text {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        /* Technologies Section */
+        .technologies {
+            padding: 6rem 0;
+            background-color: white;
+        }
+        
+        .tech-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .tech-tab {
+            padding: 1rem 2rem;
+            background: white;
+            border: 2px solid var(--primary);
+            border-radius: 50px;
+            margin: 0 0.5rem 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .tech-tab.active {
+            background: var(--gradient);
+            color: white;
+            border-color: transparent;
+        }
+        
+        .tech-content {
+            display: none;
+        }
+        
+        .tech-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        /* News Section */
+        .news {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05) 0%, rgba(14, 165, 233, 0.05) 100%);
+        }
+        
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .news-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .news-img {
+            height: 200px;
+            background: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .news-content {
+            padding: 1.5rem;
+        }
+        
+        .news-date {
+            color: var(--primary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .news-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .news-content p {
+            color: var(--gray);
+            margin-bottom: 1rem;
+        }
+        
+        /* Future Section */
+        .future {
+            padding: 6rem 0;
+            background-color: white;
+        }
+        
+        .future-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+        }
+        
+        .future-text {
+            flex: 1;
+        }
+        
+        .future-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .future-text p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .future-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .future-image img {
+            max-width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 6rem 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .footer-column p {
+            color: #cbd5e1;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #94a3b8;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 3rem;
+            }
+            
+            .hero-text p {
+                max-width: 100%;
+            }
+            
+            .future-content {
+                flex-direction: column;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <span>ИИ в современном мире</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#1">Возможности</a></li>
+                    <li><a href="#2">Применение</a></li>
+                    <li><a href="#3">Технологии</a></li>
+                    <li><a href="#5">О нас</a></li>
+                </ul>
+                <a href="#" class="btn">Начать изучение</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Искусственный интеллект в современном мире</h1>
+                    <p>Откройте для себя удивительный мир искусственного интеллекта и машинного обучения. Узнайте, как технологии меняют нашу жизнь и какие возможности они открывают для человечества.</p>
+                    <a href="#1" class="btn">Узнать больше <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title" id="1">
+                <h2>Возможности искусственного интеллекта</h2>
+                <p>ИИ меняет мир, предоставляя новые возможности и решения для сложных задач</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Машинное обучение</h3>
+                    <p>Алгоритмы, которые позволяют компьютерам обучаться на основе данных и улучшать свою производительность без явного программирования.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Глубокое обучение</h3>
+                    <p>Подраздел машинного обучения, использующий многослойные нейронные сети для решения сложных задач.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Обработка естественного языка</h3>
+                    <p>Технологии, позволяющие компьютерам понимать, интерпретировать и генерировать человеческий язык.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Компьютерное зрение</h3>
+                    <p>Технологии, позволяющие компьютерам "видеть" и интерпретировать визуальную информацию из окружающего мира.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Предиктивная аналитика</h3>
+                    <p>Использование данных, алгоритмов и методов машинного обучения для прогнозирования будущих событий.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Автоматизация процессов</h3>
+                    <p>Использование ИИ для автоматизации рутинных задач и оптимизации бизнес-процессов.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section class="applications">
+        <div class="container">
+            <div class="section-title" id="2">
+                <h2>Применение ИИ в современных отраслях</h2>
+                <p>От здравоохранения до финансов - искусственный интеллект трансформирует различные отрасли</p>
+            </div>
+            <div class="apps-container">
+                <div class="app-card">
+                    <div class="app-img">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="app-content">
+                        <h3>Здравоохранение</h3>
+                        <p>Диагностика заболеваний, разработка лекарств, персонализированная медицина и мониторинг пациентов.</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="app-img">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <div class="app-content">
+                        <h3>Финансы</h3>
+                        <p>Обнаружение мошенничества, алгоритмическая торговля, кредитный скоринг и персональные финансовые консультации.</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="app-img">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <div class="app-content">
+                        <h3>Транспорт</h3>
+                        <p>Автономные vehicles, оптимизация логистики, управление трафиком и прогнозирование спроса.</p>
+                    </div>
+                </div>
+                <div class="app-card">
+                    <div class="app-img">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="app-content">
+                        <h3>Розничная торговля</h3>
+                        <p>Персонализированные рекомендации, управление запасами, прогнозирование спроса и чат-боты для обслуживания.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="statistics">
+        <div class="container">
+            <div class="section-title">
+                <h2>ИИ в цифрах</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="stat1">0</div>
+                    <div class="stat-text">миллиардов долларов рынок ИИ к 2025 году</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="stat2">0</div>
+                    <div class="stat-text">организаций внедряют технологии ИИ</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="stat3">0</div>
+                    <div class="stat-text">процентов повышения производительности с ИИ</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="stat4">0</div>
+                    <div class="stat-text">миллионов новых рабочих мест создаст ИИ</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies">
+        <div class="container">
+            <div class="section-title" id="3">
+                <h2>Ключевые технологии ИИ</h2>
+                <p>Основные технологии, лежащие в основе искусственного интеллекта</p>
+            </div>
+            <div class="tech-tabs">
+                <div class="tech-tab active" data-tab="nlp">NLP</div>
+                <div class="tech-tab" data-tab="cv">Computer Vision</div>
+                <div class="tech-tab" data-tab="ml">Machine Learning</div>
+                <div class="tech-tab" data-tab="dl">Deep Learning</div>
+                <div class="tech-tab" data-tab="rl">Reinforcement Learning</div>
+            </div>
+            <div class="tech-content active" id="nlp-content">
+                <h3>Обработка естественного языка (NLP)</h3>
+                <p>NLP позволяет компьютерам понимать, интерпретировать и генерировать человеческий язык. Эта технология лежит в основе чат-ботов, голосовых помощников, автоматического перевода и анализа тональности текста.</p>
+                <p>Современные модели, такие как GPT, BERT и Transformer, достигли значительных успехов в понимании контекста и генерации связного текста.</p>
+            </div>
+            <div class="tech-content" id="cv-content">
+                <h3>Компьютерное зрение (Computer Vision)</h3>
+                <p>Компьютерное зрение позволяет машинам "видеть" и интерпретировать визуальную информацию. Эта технология используется в распознавании лиц, автономных транспортных средствах, медицинской диагностике и промышленной автоматизации.</p>
+                <p>Сверточные нейронные сети (CNN) являются ключевой архитектурой для задач компьютерного зрения.</p>
+            </div>
+            <div class="tech-content" id="ml-content">
+                <h3>Машинное обучение (Machine Learning)</h3>
+                <p>Машинное обучение - это основа ИИ, позволяющая системам обучаться на данных без явного программирования. Алгоритмы ML находят закономерности в данных и используют их для прогнозирования или принятия решений.</p>
+                <p>Основные подходы включают обучение с учителем, без учителя и с частичным привлечением учителя.</p>
+            </div>
+            <div class="tech-content" id="dl-content">
+                <h3>Глубокое обучение (Deep Learning)</h3>
+                <p>Глубокое обучение - это подраздел машинного обучения, использующий многослойные нейронные сети. Эти алгоритмы особенно эффективны для обработки неструктурированных данных, таких как изображения, звук и текст.</p>
+                <p>Глубокие нейронные сети достигли прорывных результатов в распознавании речи, машинном переводе и других сложных задачах.</p>
+            </div>
+            <div class="tech-content" id="rl-content">
+                <h3>Обучение с подкреплением (Reinforcement Learning)</h3>
+                <p>В обучении с подкреплением агент учится принимать решения, взаимодействуя со средой и получая обратную связь в виде вознаграждения. Этот подход успешно применяется в робототехнике, играх и управлении ресурсами.</p>
+                <p>AlphaGo и AlphaZero от DeepMind являются яркими примерами успеха reinforcement learning.</p>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Future Section -->
+    <section class="future">
+        <div class="container">
+            <div class="section-title" id="5">
+                <h2>Будущее искусственного интеллекта</h2>
+                <p>Какие перспективы и вызовы ждут нас в ближайшие десятилетия</p>
+            </div>
+            <div class="future-content">
+                <div class="future-text">
+                    <h3>От узкого ИИ к общему искусственному интеллекту</h3>
+                    <p>Современные системы ИИ являются "узкими" - они excel в конкретных задачах, но не обладают универсальным интеллектом. Главной целью исследований является создание общего ИИ (AGI), способного решать любые интеллектуальные задачи, как человек.</p>
+                    <p>Хотя до создания истинного AGI еще далеко, прогресс в этой области ускоряется с каждым годом. Ученые прогнозируют, что первые прототипы AGI могут появиться уже в следующем десятилетии.</p>
+                    <h3>Вызовы и этические considerations</h3>
+                    <p>Развитие ИИ ставит перед обществом серьезные этические вопросы: от приватности данных до автономного оружия. Важно разрабатывать этические frameworks и regulations, чтобы ensure, что ИИ служит на благо человечества.</p>
+                    <a href="#" class="btn">Исследовать будущее ИИ</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column" id="6">
+                    <h3>Искусственный интеллект в современном мире</h3>
+                    <p>Исследуем настоящее и будущее искусственного интеллекта, машинного обучения и передовых технологий.</p>
+                    <div class="social-icons">
+                        <a href="https://vk.com/club232639886"><i class="fab fa-vk"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCmP3ub2oOJ62eg3G9FK-Msw"><i class="fab fa-youtube"></i></a>
+                        <a href="https://github.com/vizzbzik"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Разделы</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Главная</a></li>
+                        <li><a href="#1">Возможности</a></li>
+                        <li><a href="#2">Применение</a></li>
+                        <li><a href="#3">Технологии</a></li>
+                        <li><a href="#5">О нас</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-envelope"></i> razrabsites@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +7 (980) 029-53-05</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Искусственный интеллект в современном мире. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Анимация счетчиков статистики
+        function animateValue(id, start, end, duration) {
+            let obj = document.getElementById(id);
+            let range = end - start;
+            let increment = end > start ? 1 : -1;
+            let step = Math.abs(Math.floor(duration / range));
+            let timer = setInterval(() => {
+                start += increment;
+                obj.textContent = start;
+                if (start == end) {
+                    clearInterval(timer);
+                }
+            }, step);
+        }
+        
+        // Запуск анимации при прокрутке до секции
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+        
+        // Обработчики для табов технологий
+        const techTabs = document.querySelectorAll('.tech-tab');
+        const techContents = document.querySelectorAll('.tech-content');
+        
+        techTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                
+                // Убираем активный класс у всех табов и контента
+                techTabs.forEach(t => t.classList.remove('active'));
+                techContents.forEach(c => c.classList.remove('active'));
+                
+                // Добавляем активный класс к выбранному табу и контенту
+                tab.classList.add('active');
+                document.getElementById(`${tabId}-content`).classList.add('active');
+            });
+        });
+        
+        // Запуск анимации при загрузке страницы
+        window.addEventListener('load', () => {
+            // Анимация счетчиков
+            animateValue('stat1', 0, 390, 2000);
+            animateValue('stat2', 0, 86, 2000);
+            animateValue('stat3', 0, 40, 2000);
+            animateValue('stat4', 0, 97, 2000);
+        });
+    </script>
+</body>
+</html>
