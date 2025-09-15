@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Топ популярных нейросетей: обзор лучших ИИ-инструментов</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #ff8a00;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #ff8a00;
+        }
+        
+        /* Article Header */
+        .article-header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1677442135135-416f8aa26a5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .article-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .tags {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+        
+        .tag {
+            background: rgba(255, 138, 0, 0.2);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        /* Article Content */
+        .article-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        @media (max-width: 900px) {
+            .article-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .main-content {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        .intro {
+            font-size: 1.2rem;
+            color: #667eea;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1.5rem;
+            color: #333;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #ff8a00;
+            border-radius: 2px;
+        }
+        
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .tool-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 4px solid #667eea;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tool-icon {
+            font-size: 2rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .tool-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #333;
+        }
+        
+        .tool-desc {
+            color: #666;
+            font-size: 0.95rem;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            color: white;
+        }
+        
+        .highlight h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        blockquote {
+            border-left: 4px solid #ff8a00;
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+        }
+        
+        .author {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .author-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid #f0f4ff;
+        }
+        
+        .author-name {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .author-title {
+            color: #667eea;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: #f0f4ff;
+            color: #667eea;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f4ff;
+        }
+        
+        .popular-articles {
+            list-style: none;
+        }
+        
+        .popular-articles li {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f0f4ff;
+        }
+        
+        .popular-articles li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .popular-articles a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .popular-articles a:hover {
+            color: #667eea;
+        }
+        
+        /* Comments */
+        .comments {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 3rem;
+        }
+        
+        .comment-form {
+            margin-bottom: 2rem;
+        }
+        
+        .comment-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            resize: vertical;
+            min-height: 120px;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .comment-form button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+        
+        .comment-form button:hover {
+            background: #5a6fd5;
+        }
+        
+        .comment {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #f0f4ff;
+        }
+        
+        .comment:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .comment-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #f0f4ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+        
+        .comment-content {
+            flex: 1;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        .comment-date {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            border-radius: 12px;
+        }
+        
+        .newsletter h2 {
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        
+        .newsletter-form button {
+            background: #ff8a00;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 4px 4px 0;
+            color: white;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #ff8a00;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #444;
+            color: white;
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: #ff8a00;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .article-title {
+                font-size: 2rem;
+            }
+            
+            .article-meta {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 4px;
+                margin-bottom: 0.5rem;
+            }
+            
+            .newsletter-form button {
+                border-radius: 4px;
+                padding: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">AI <span>Article</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="articles.html">Статьи</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Header -->
+    <div class="article-header">
+        <div class="container">
+            <h1 class="article-title">Топ популярных нейросетей: обзор лучших ИИ-инструментов</h1>
+            <div class="article-meta">
+                <div class="meta-item">
+                    <i class="far fa-user"></i>
+                    <span>Дмитрий Мельников</span>
+                </div>
+                <div class="meta-item">
+                    <i class="far fa-calendar"></i>
+                    <span>15 сентября 2025</span>
+                </div>
+                <div class="meta-item">
+                    <i class="far fa-clock"></i>
+                    <span>8 мин чтения</span>
+                </div>
+            </div>
+            <div class="tags">
+                <span>Артиклы</span>
+                <span class="tag">#ии</span>
+                <span class="tag">#нейросети</span>
+                <span class="tag">#ai</span>
+                <span class="tag">#технологии</span>
+                <span class="tag">#chatgpt</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Content -->
+    <div class="container">
+        <div class="article-content">
+            <div class="main-content">
+                <p class="intro">🚀 Привет, друзья! Часто спрашивают, какие нейросети сейчас в тренде и для чего они нужны. Собрал для вас топ самых популярных и полезных ИИ-инструментов! 🧠</p>
+                <h2 class="section-title">Артиклы: слова, с которыми связана статья</h2>
+                <p>Вот куда точно стоит заглянуть, чтобы упростить себе жизнь, работать продуктивнее или просто развлечься:</p>
+                
+                  
+                <h2 class="section-title">🎨 Для креатива и генерации изображений</h2>
+                
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h3 class="tool-title">Midjourney</h3>
+                        <p class="tool-desc">Король арта и фантастических визуалов. Картинки получаются невероятно детализированными и художественными. (Работает через Discord)</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-image"></i>
+                        </div>
+                        <h3 class="tool-title">DALL-E 3</h3>
+                        <p class="tool-desc">Отлично понимает сложные и детальные запросы на русском. Идеален, если нужно быстро создать точную иллюстрацию по описанию.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                        <h3 class="tool-title">Stable Diffusion</h3>
+                        <p class="tool-desc">Мощная open-source модель. Для тех, кто любит кастомизацию и хочет запускать всё на своём компьютере.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h3 class="tool-title">Kandinsky 3.0</h3>
+                        <p class="tool-desc">Наша сильная разработка, которая здорово генерирует изображения по-русски без акцента.</p>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">💬 Для общения, поиска и работы с текстом</h2>
+                
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-comment"></i>
+                        </div>
+                        <h3 class="tool-title">ChatGPT</h3>
+                        <p class="tool-desc">Самый известный чат-бот. Помогает написать текст, придумать идею, объяснить сложное простыми словами или просто поболтать.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="tool-title">Claude</h3>
+                        <p class="tool-desc">Отличается большим «объёмом памяти», может работать с длинными документами и очень вежлив.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="tool-title">Gemini</h3>
+                        <p class="tool-desc">Мозг от Google, тесно интегрированный с поисковой системой. Отлично справляется с анализом и поиском информации.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h3 class="tool-title">YandexGPT</h3>
+                        <p class="tool-desc">Отлично понимает контекст российских реалий и тоже умеет работать с голосом (Алиса).</p>
+                    </div>
+                </div>
+                
+                <div class="highlight">
+                    <h3>💡 Совет эксперта</h3>
+                    <p>Не ограничивайтесь одной нейросетью — каждая имеет свои сильные стороны. Используйте разные инструменты для разных задач!</p>
+                </div>
+                
+                <h2 class="section-title">🎥 Для работы с видео и аудио</h2>
+                
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3 class="tool-title">HeyGen</h3>
+                        <p class="tool-desc">Легко создаёт видео с говорящими аватарами, которые можно перевести на любой язык, сохранив ваш голос и манеру речи!</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <h3 class="tool-title">ElevenLabs</h3>
+                        <p class="tool-desc">Лучший генератор натурального голоса. Озвучка текста, клонирование голоса — звучит как живой человек.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3 class="tool-title">Suno</h3>
+                        <p class="tool-desc">Просто взорвал интернет! Генерирует полномасштабные музыкальные треки с вокалом и инструментами по текстовому описанию.</p>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">🔍 Для поиска и анализа данных</h2>
+                
+                <div class="tool-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="tool-title">Perplexity AI</h3>
+                        <p class="tool-desc">Умный поисковик, который не просто даёт ссылки, а сразу пишет развёрнутый ответ с источниками. Отлично подходит для исследований.</p>
+                    </div>
+                    
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <i class="fas fa-sticky-note"></i>
+                        </div>
+                        <h3 class="tool-title">Notion AI</h3>
+                        <p class="tool-desc">Встроенный ИИ-помощник в вашем рабочем пространстве. Помогает суммировать заметки, генерировать контент и структурировать данные.</p>
+                    </div>
+                </div>
+                
+                <blockquote>
+                    Это лишь верхушка айсберга! Мир ИИ развивается молниеносно, каждый день появляется что-то новое.
+                </blockquote>
+                
+                <p>А какой ваш любимый ИИ-инструмент? </p>
+            </div>
+            
+            <div class="sidebar">
+                <div class="author">
+                    
+                    <h3 class="author-name">Мельников Дмитрий</h3>
+                    <p class="author-title">Изучаю ИИ</p>
+                    <div class="social-links">
+                        <a href="https://vk.com/apfsaf"><i class="fab fa-vk"></i></a>
+                    </div>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Популярные статьи</h3>
+                    <ul class="popular-articles">
+                        <li><a href="articles1.html">Топ ИИ в 2025 году</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">Категории</h3>
+                    <ul class="popular-articles">
+                        <li><a href="articles1.html">ИИ</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+            
+
+        
+
+
