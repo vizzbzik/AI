@@ -12,7 +12,140 @@
             padding: 0;
             box-sizing: border-box;
         }
+        .share-text {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-left: 4px solid #667eea;
+        }
         
+        .share-text p {
+            line-height: 1.6;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .share-btn {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-copy {
+            background: #ff8a00;
+            box-shadow: 0 4px 15px rgba(255, 138, 0, 0.3);
+        }
+        
+        .btn-copy:hover {
+            background: #ff7b00;
+            box-shadow: 0 6px 20px rgba(255, 138, 0, 0.4);
+        }
+        
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4caf50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .notification.show {
+            opacity: 1;
+        }
+        
+        .social-share {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 20px;
+        }
+        
+        .social-btn {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        .telegram {
+            background: #0088cc;
+        }
+        
+        .vk {
+            background: #4a76a8;
+        }
+        
+        .twitter {
+            background: #1da1f2;
+        }
+        
+        .whatsapp {
+            background: #25d366;
+        }
+        
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .share-btn {
+                flex-direction: column;
+                gap: 10px;
+            }
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -606,7 +739,7 @@
         <div class="article-content">
             <div class="main-content">
                 <p class="intro">🚀 Привет, друзья! Часто спрашивают, какие нейросети сейчас в тренде и для чего они нужны. Собрал для вас топ самых популярных и полезных ИИ-инструментов! 🧠</p>
-                <h2 class="section-title">Артиклы: слова, с которыми связана статья</h2>
+                
                 <p>Вот куда точно стоит заглянуть, чтобы упростить себе жизнь, работать продуктивнее или просто развлечься:</p>
                 
                   
@@ -740,6 +873,129 @@
                 </blockquote>
                 
                 <p>А какой ваш любимый ИИ-инструмент? </p>
+                   </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Поделиться статьей</h1>
+            <p>Расскажите другим об этой интересной статье</p>
+        </div>
+        
+        <div class="content">
+            <div class="share-text">
+                <p>Ознакомьтесь со статьей Дмитрий Мельников «Топ популярных нейросетей: обзор лучших ИИ-инструментов» от 15 сентября 2025 года! </p>
+                <p>https://ai-project-school.vercel.app/articles1.html</p>
+            </div>
+            
+            <div class="share-btn">
+                <button class="btn" id="shareBtn">
+                    <i class="fas fa-share-alt"></i> Поделиться
+                </button>
+                <button class="btn btn-copy" id="copyBtn">
+                    <i class="fas fa-copy"></i> Копировать текст
+                </button>
+            </div>
+
+            <p>Или поделитесь через:</p>
+            
+            <div class="social-share">
+                <div class="social-btn telegram" title="Поделиться в Telegram">
+                    <i class="fab fa-telegram"></i>
+                </div>
+                <div class="social-btn vk" title="Поделиться ВКонтакте">
+                    <i class="fab fa-vk"></i>
+                </div>
+                <div class="social-btn twitter" title="Поделиться в Twitter">
+                    <i class="fab fa-twitter"></i>
+                </div>
+                <div class="social-btn whatsapp" title="Поделиться в WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">Текст скопирован в буфер обмена!</div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const shareText = `Ознакомьтесь со статьей Дмитрий Мельников «Топ популярных нейросетей: обзор лучших ИИ-инструментов» от 15 сентября 2025 года! \nhttps://ai-project-school.vercel.app/articles1.html`;
+            
+            const shareBtn = document.getElementById('shareBtn');
+            const copyBtn = document.getElementById('copyBtn');
+            const notification = document.getElementById('notification');
+            
+            // Функция для показа уведомления
+            function showNotification() {
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+            
+            // Копирование текста в буфер обмена
+            copyBtn.addEventListener('click', function() {
+                navigator.clipboard.writeText(shareText).then(() => {
+                    showNotification();
+                }).catch(err => {
+                    console.error('Ошибка при копировании текста: ', err);
+                    
+                    // Fallback для старых браузеров
+                    const textArea = document.createElement('textarea');
+                    textArea.value = shareText;
+                    document.body.appendChild(textArea);
+                    textArea.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(textArea);
+                    
+                    showNotification();
+                });
+            });
+            
+            // Поделиться через Web Share API
+            shareBtn.addEventListener('click', function() {
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Топ популярных нейросетей: обзор лучших ИИ-инструментов',
+                        text: 'Ознакомьтесь со статьей Дмитрий Мельников «Топ популярных нейросетей: обзор лучших ИИ-инструментов» от 15 сентября 2025 года!',
+                        url: 'https://ai-project-school.vercel.app/articles1.html'
+                    }).catch(err => {
+                        console.log('Ошибка при использовании Web Share API:', err);
+                    });
+                } else {
+                    // Fallback - копируем в буфер обмена
+                    navigator.clipboard.writeText(shareText).then(() => {
+                        showNotification();
+                    });
+                }
+            });
+            
+            // Обработчики для социальных кнопок
+            document.querySelectorAll('.social-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    let shareUrl;
+                    const encodedText = encodeURIComponent('Ознакомьтесь со статьей Дмитрий Мельников «Топ популярных нейросетей: обзор лучших ИИ-инструментов» от 15 сентября 2025 года!');
+                    const encodedUrl = encodeURIComponent('https://ai-project-school.vercel.app/articles1.html');
+                    
+                    if (this.classList.contains('telegram')) {
+                        shareUrl = `https://t.me/share/url?url=${encodedUrl}&text=${encodedText}`;
+                    } else if (this.classList.contains('vk')) {
+                        shareUrl = `https://vk.com/share.php?url=${encodedUrl}&title=${encodedText}`;
+                    } else if (this.classList.contains('twitter')) {
+                        shareUrl = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+                    } else if (this.classList.contains('whatsapp')) {
+                        shareUrl = `https://wa.me/?text=${encodedText} ${encodedUrl}`;
+                    }
+                    
+                    window.open(shareUrl, '_blank', 'width=600,height=400');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
             </div>
             
             <div class="sidebar">
